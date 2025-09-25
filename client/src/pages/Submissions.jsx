@@ -13,10 +13,10 @@ function Submissions() {
     const fetchSubmissions = async () => {
       try {
         const userData = JSON.parse(localStorage.getItem('user'));
-        const formRes = await axios.get(`http://localhost:3000/api/forms/${formId}`);
+        const formRes = await axios.get(`https://no-code-form-builder.onrender.com/api/forms/${formId}`);
         setFormTitle(formRes.data.title);
 
-        const submissionsRes = await axios.get(`http://localhost:3000/api/forms/${formId}/submissions`, {
+        const submissionsRes = await axios.get(`https://no-code-form-builder.onrender.com/api/forms/${formId}/submissions`, {
           headers: { Authorization: `Bearer ${userData.accessToken}` },
         });
 

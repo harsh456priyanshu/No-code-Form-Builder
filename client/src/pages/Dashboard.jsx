@@ -18,7 +18,7 @@ function Dashboard() {
           return;
         }
 
-        const response = await axios.get('http://localhost:3000/api/forms', {
+        const response = await axios.get('https://no-code-form-builder.onrender.com/api/forms', {
           headers: {
             Authorization: `Bearer ${userData.accessToken}`,
           },
@@ -52,7 +52,7 @@ function Dashboard() {
     try {
       const userData = JSON.parse(localStorage.getItem('user'));
       const response = await axios.post(
-        'http://localhost:3000/api/forms',
+        'https://no-code-form-builder.onrender.com/api/forms',
         { title: newFormTitle },
         {
           headers: { Authorization: `Bearer ${userData.accessToken}` },
@@ -72,7 +72,7 @@ function Dashboard() {
     }
     try {
       const userData = JSON.parse(localStorage.getItem('user'));
-      await axios.delete(`http://localhost:3000/api/forms/${formId}`, {
+      await axios.delete(`https://no-code-form-builder.onrender.com/api/forms/${formId}`, {
         headers: { Authorization: `Bearer ${userData.accessToken}` },
       });
       setForms(forms.filter((form) => form._id !== formId));

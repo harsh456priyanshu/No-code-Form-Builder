@@ -14,7 +14,7 @@ function PublicForm() {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3000/api/forms/${formId}`);
+        const { data } = await axios.get(`https://no-code-form-builder.onrender.com/api/forms/${formId}`);
         setForm(data);
       } catch (error) {
         console.error("Failed to fetch form", error);
@@ -94,7 +94,7 @@ function PublicForm() {
         fieldLabel: field.label,
         answer: Array.isArray(responses[field.id]) ? responses[field.id].join(', ') : responses[field.id] || '',
       }));
-      await axios.post(`http://localhost:3000/api/forms/${formId}/submit`, { responses: submissionData });
+      await axios.post(`https://no-code-form-builder.onrender.com/api/forms/${formId}/submit`, { responses: submissionData });
       setSubmissionStatus('Your response has been submitted successfully!');
     } catch (error) {
       console.error('Failed to submit response', error);

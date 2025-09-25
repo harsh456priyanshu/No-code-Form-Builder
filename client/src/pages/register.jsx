@@ -14,7 +14,7 @@ function Register() {
         setError('');
 
         try {
-            await axios.post('http://localhost:3000/api/auth/register', {
+            await axios.post('https://no-code-form-builder.onrender.com/api/auth/register', {
                 username,
                 email,
                 password,

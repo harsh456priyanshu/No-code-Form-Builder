@@ -41,7 +41,7 @@ function FormBuilder() {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/forms/${formId}`);
+        const response = await axios.get(`https://no-code-form-builder.onrender.com/api/forms/${formId}`);
         if (!response.data.styles) {
           response.data.styles = { backgroundColor: '#111827', textColor: '#FFFFFF', buttonColor: '#0891B2' };
         }
@@ -87,7 +87,7 @@ function FormBuilder() {
     try {
       const userData = JSON.parse(localStorage.getItem('user'));
       await axios.put(
-        `http://localhost:3000/api/forms/${formId}`,
+        `https://no-code-form-builder.onrender.com/api/forms/${formId}`,
         { title: form.title, fields: form.fields, styles: form.styles },
         { headers: { Authorization: `Bearer ${userData.accessToken}` } }
       );
